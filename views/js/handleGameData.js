@@ -9,7 +9,7 @@ function sendGameData(data) {
     gameData.append("linhas_eliminadas", data.lines);
     http.open("POST", url, true);
     http.send(gameData);
-  
+    console.log(gameData["tempo"]);
     let time = data.time.split(':');
     let text = "Game Over";
     text += "\nTempo de partida: " + time[0] + "m";
@@ -59,7 +59,7 @@ function getGameRanking() {
     const url = "/minetetris/controllers/jogoControllers/gameRanking.php";
     http.open("POST", url, true);
     http.send();
-    console.log('teste');
+    
     http.onload = function () {
         try {
             games = JSON.parse(http.response);
