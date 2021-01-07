@@ -36,12 +36,12 @@ function getPlayerHistory() {
                 let playerHistoryTable = document.getElementById("player-history-table");
 
                 games.forEach((game, index) => {
-                    let row = playerHistoryTable.insertRow(index+1);
+                    let row = playerHistoryTable.insertRow(index + 1);
                     let idColumn = row.insertCell(0);
                     let scoreColumn = row.insertCell(1);
                     let levelColumn = row.insertCell(2);
                     let timeColumn = row.insertCell(3);
-                    idColumn.innerHTML = index+1;
+                    idColumn.innerHTML = index + 1;
                     scoreColumn.innerHTML = game.pontuacao;
                     levelColumn.innerHTML = game.dificuldade;
                     timeColumn.innerHTML = game.tempo;
@@ -56,7 +56,7 @@ function getPlayerHistory() {
 
 function getGameRanking() {
     const http = new XMLHttpRequest();
-    const url = "/minetetris/controllers/jogoControllers/playerHistory.php";
+    const url = "/minetetris/controllers/jogoControllers/gameRanking.php";
     http.open("POST", url, true);
     http.send();
     console.log('teste');
@@ -68,13 +68,14 @@ function getGameRanking() {
                 let gameRankingTable = document.getElementById("game-ranking-table");
 
                 games.forEach((game, index) => {
-                    console.log(index);
-                    let row = gameRankingTable.insertRow(index+1);
+                    let row = gameRankingTable.insertRow(index + 1);
                     let idColumn = row.insertCell(0);
-                    let scoreColumn = row.insertCell(1);
-                    let levelColumn = row.insertCell(2);
-                    let timeColumn = row.insertCell(3);
-                    idColumn.innerHTML = index;
+                    let usernameColumn = row.insertCell(1);
+                    let scoreColumn = row.insertCell(2);
+                    let levelColumn = row.insertCell(3);
+                    let timeColumn = row.insertCell(4);
+                    idColumn.innerHTML = index + 1;
+                    usernameColumn.innerHTML = game.username;
                     scoreColumn.innerHTML = game.pontuacao;
                     levelColumn.innerHTML = game.dificuldade;
                     timeColumn.innerHTML = game.tempo;

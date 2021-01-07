@@ -32,6 +32,7 @@ if (!isset($_SESSION['usuario'])) {
                 <table id="game-ranking-table">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Nome</th>
                             <th>Pontos</th>
                             <th>Nível</th>
