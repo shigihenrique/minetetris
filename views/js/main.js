@@ -185,9 +185,6 @@ function timer() {
   let seconds = time[2]++;
   let minutes = time[1];
   let hours = time[0];
-  console.log(seconds);
-  console.log(hours)
-
   seconds++;
 
   if(seconds < 10) seconds = '0' + seconds;
