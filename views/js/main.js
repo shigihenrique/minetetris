@@ -150,7 +150,7 @@ function gameOver() {
   finishSound.play();
 
   sendGameData(account);
-
+  
   resetTimer();
   toggleBoardDisplay();
   toggleStartButtonDisplay();

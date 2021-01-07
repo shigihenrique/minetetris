@@ -66,19 +66,14 @@ class Board {
 
   clearLines() {
     let lines = 0;
+    let hasEspecialBlock = false;
 
     this.grid.forEach((row, y) => {
       // Caso toda a linha maior que 0 temos uma linha cheia
       if(row.every((value) => value > 0)) {
         // Procura se há um bloco especial na linha
-        if(row.indexOf(7) >= 0) {
-          this.spin();
-          // Verifica se o inverter teclas checkbox não foi selecionado
-          if(!document.querySelector('#toggle-reverse-keys').checked) {
-            toggleMoves();
-          }
-        }
-
+        if(row.indexOf(7) >= 0) { hasEspecialBlock = true; }
+        
         lines++;
         // Remove a linha
         this.grid.splice(y, 1);
@@ -86,6 +81,14 @@ class Board {
         this.grid.unshift(Array(this.cols).fill(0));
       }
     });
+
+    if(hasEspecialBlock) {
+      this.spin();
+      // Verifica se o inverter teclas checkbox não foi selecionado
+      if(!document.querySelector('#toggle-reverse-keys').checked) {
+        toggleMoves();
+      }
+    }
 
     if(lines > 0) {
       // Calcular pontuação

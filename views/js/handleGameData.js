@@ -19,7 +19,7 @@ function sendGameData(data) {
     text += "\nPontuação: " + data.score;
     text += "\nLinhas Eliminadas: " + data.lines;
   
-    //window.location.reload();
+    window.location.reload();
     window.alert(text);
 }
 
