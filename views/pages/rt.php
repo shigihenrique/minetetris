@@ -99,7 +99,7 @@
     <section id="game-atual">
         <h2>JOGO ATUAL</h2>
         <p class="dado-do-jogo"><span class="negrito">TEMPO DA PARTIDA: </span><span class="dados-do-jogo"
-                id="time">00:00</span></p>
+                id="time">00:00:00</span></p>
         <p class="dado-do-jogo"><span class="negrito">PONTUAÇÃO: </span><span class="dados-do-jogo"
                 id="score">0</span></p>
         <p class="dado-do-jogo"><span class="negrito">LINHAS ELIMIMINADAS: </span><span class="dados-do-jogo"
