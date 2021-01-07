@@ -14,7 +14,7 @@ class Board {
     this.ctx.canvas.height = 20 * BLOCK_SIZE; 
 
     // Define a escala dos elementos inseridos no contexto do canvas
-    if(this.rows === 45) {
+    if(this.rows === 44) {
       this.ctx.scale((BLOCK_SIZE / 100) * 45.5, (BLOCK_SIZE / 100)  * 45.5);
     } else {
       this.ctx.scale(BLOCK_SIZE, BLOCK_SIZE);
