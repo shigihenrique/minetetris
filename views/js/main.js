@@ -168,19 +168,6 @@ function gameOver() {
   text += "\nPontuação: " + account.score;
   text += "\nLinhas Eliminadas: " + account.lines;
 
-  // var tableRankingLastGames = document.getElementById("tableRankingLastAllGameplayer");
-  // deleteRowsTableLastAllGamePlayer();
-  // getLastAllGamePlayer();
-  // var row = tableRankingLastGames.insertRow(index);
-  // var idTable = row.insertCell(0);
-  // var punctuationTable = row.insertCell(1);
-  // var difficultyTable = row.insertCell(2);
-  // var timeEndTable = row.insertCell(3);
-  // idTable.innerHTML = index;
-  // punctuationTable.innerHTML = account.score;
-  // difficultyTable.innerHTML = account.level;
-  // timeEndTable.innerHTML = account.time;
-
   window.location.reload();
   window.alert(text);
 
