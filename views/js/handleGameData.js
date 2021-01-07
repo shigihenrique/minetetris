@@ -12,12 +12,11 @@ function sendGameData(data) {
     console.log(data.time);
 
     let time = data.time.split(':');
-    let text = "Game Over";
-    text += "\nTempo de partida: " + time[0] + "m";
-    text += " " + time[1] + "s";
-    text += "\nDificuldade: " + data.level;
-    text += "\nPontuação: " + data.score;
-    text += "\nLinhas Eliminadas: " + data.lines;
+    let text = 'Game Over';
+    text += '\nTempo de partida: ' + time[0] + 'h ' + time[1] + 'm ' + time[2] + 's';
+    text += '\nDificuldade: ' + data.level;
+    text += '\nPontuação: ' + data.score;
+    text += '\nLinhas Eliminadas: ' + data.lines;
   
     window.location.reload();
     window.alert(text);
