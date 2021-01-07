@@ -67,6 +67,10 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
         </div>
+        <div id="control-container">
+            <button id="pause-btn" onclick="pause()" class="play-button">PAUSAR</button>
+            <span class="sound-item" id="sound-speaker"></span>
+        </div>
         <div id="rolling-tetris">
             <img id="rt-background" src="../lib/img/stone_background.jpg" alt="background RollingTetris">
             <button id="start-btn" type="button" data-toggle="modal" data-target="#myModal">
@@ -75,10 +79,6 @@ if (!isset($_SESSION['usuario'])) {
 
             <canvas id="board" class="game-board"></canvas>
             <canvas id="next" class="next"></canvas>
-        </div>
-        <div id="control-container">
-            <button id="pause-btn" onclick="pause()" class="play-button">PAUSAR</button>
-            <span class="sound-item" id="sound-speaker"></span>
         </div>
     </main>
 
