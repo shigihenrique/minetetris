@@ -17,7 +17,7 @@ if (!isset($_SESSION['usuario'])) {
     <title>MINETETRIS</title>
 </head>
 
-<body onload="getPlayerHistory()">
+<body onload="getGameRanking()">
     <header>
         <figure>
             <a href="rt.php">
@@ -29,7 +29,7 @@ if (!isset($_SESSION['usuario'])) {
         <section>
             <h2>Ranking global</h2>
             <div id="ranking-list">
-                <table>
+                <table id="game-ranking-table">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -39,42 +39,6 @@ if (!isset($_SESSION['usuario'])) {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Roque</td>
-                            <td>665</td>
-                            <td>37</td>
-                            <td>26:52</td>
-                        </tr>
-                        <tr>
-                            <td>Roque</td>
-                            <td>550</td>
-                            <td>34</td>
-                            <td>25:51</td>
-                        </tr>
-                        <tr>
-                            <td>Mateus</td>
-                            <td>432</td>
-                            <td>33</td>
-                            <td>23:38</td>
-                        </tr>
-                        <tr>
-                            <td>Shigi</td>
-                            <td>287</td>
-                            <td>25</td>
-                            <td>19:42</td>
-                        </tr>
-                        <tr>
-                            <td>Lucas</td>
-                            <td>256</td>
-                            <td>25</td>
-                            <td>18:02</td>
-                        </tr>
-                        <tr>
-                            <td>Jão</td>
-                            <td>30</td>
-                            <td>2</td>
-                            <td>00:31</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

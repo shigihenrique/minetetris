@@ -19,7 +19,7 @@ final class JogoDAO extends DAO
     }
 
 
-    public static function selectAllGamePlayerToRanking($conn, $username)
+    public static function selectGamesByPlayer($conn, $username)
     {
         if (!parent::isConnObj($conn)) {
             throw new Exception("Parâmetro 'conn' não é um objeto da classe 'PDO'");

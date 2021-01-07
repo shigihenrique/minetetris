@@ -1,6 +1,6 @@
 function sendGameData(data) {
-    let http = new XMLHttpRequest();
-    let url = "/minetetris/controllers/jogoControllers/saveDataGame.php";
+    const http = new XMLHttpRequest();
+    const url = "/minetetris/controllers/jogoControllers/saveDataGame.php";
     let gameData = new FormData();
 
     gameData.append("tempo", data.time);
@@ -24,30 +24,28 @@ function sendGameData(data) {
 
 
 function getPlayerHistory() {
-    let http = new XMLHttpRequest();
-    let url = "/minetetris/controllers/jogoControllers/rankingLastAllGamePlayer.php";
+    const http = new XMLHttpRequest();
+    const url = "/minetetris/controllers/jogoControllers/playerHistory.php";
     http.open("POST", url, true);
     http.send();
     http.onload = function () {
         try {
             games = JSON.parse(http.response);
 
-            if(!games.length <= 0) {
-                let playerHistoryTable = document.getElementById("tableRankingLastAllGameplayer");
+            if(games.length > 0) {
+                let playerHistoryTable = document.getElementById("player-history-table");
 
-                for (const game of games) {
-                    let row = playerHistoryTable.insertRow(index);
-                    let idTable = row.insertCell(0);
+                games.forEach((game, index) => {
+                    let row = playerHistoryTable.insertRow(index+1);
+                    let idColumn = row.insertCell(0);
                     let scoreColumn = row.insertCell(1);
                     let levelColumn = row.insertCell(2);
                     let timeColumn = row.insertCell(3);
-                    idTable.innerHTML = index;
+                    idColumn.innerHTML = index+1;
                     scoreColumn.innerHTML = game.pontuacao;
                     levelColumn.innerHTML = game.dificuldade;
                     timeColumn.innerHTML = game.tempo;
-
-                    index++;
-                }
+                })                
             }
         } catch (err) {
 
@@ -57,30 +55,30 @@ function getPlayerHistory() {
 }
 
 function getGameRanking() {
-    let http = new XMLHttpRequest();
-    let url = "/minetetris/controllers/jogoControllers/playerHistory.php";
+    const http = new XMLHttpRequest();
+    const url = "/minetetris/controllers/jogoControllers/playerHistory.php";
     http.open("POST", url, true);
     http.send();
+    console.log('teste');
     http.onload = function () {
         try {
             games = JSON.parse(http.response);
 
-            if(!games.length <= 0) {
-                let tableRankingLastGames = document.getElementById("playerHistoryTable");
+            if(games.length > 0) {
+                let gameRankingTable = document.getElementById("game-ranking-table");
 
-                for (const x of games) {
-                let row = tableRankingLastGames.insertRow(index);
-                let idTable = row.insertCell(0);
-                let punctuationTable = row.insertCell(1);
-                let difficultyTable = row.insertCell(2);
-                let timeEndTable = row.insertCell(3);
-                idTable.innerHTML = index;
-                punctuationTable.innerHTML = x.pontuacao;
-                difficultyTable.innerHTML = x.dificuldade;
-                timeEndTable.innerHTML = x.tempo;
-
-                index++;
-                }
+                games.forEach((game, index) => {
+                    console.log(index);
+                    let row = gameRankingTable.insertRow(index+1);
+                    let idColumn = row.insertCell(0);
+                    let scoreColumn = row.insertCell(1);
+                    let levelColumn = row.insertCell(2);
+                    let timeColumn = row.insertCell(3);
+                    idColumn.innerHTML = index;
+                    scoreColumn.innerHTML = game.pontuacao;
+                    levelColumn.innerHTML = game.dificuldade;
+                    timeColumn.innerHTML = game.tempo;
+                })
             }
         } catch (err) {
 

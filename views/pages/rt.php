@@ -82,7 +82,7 @@
 
     <section id="ranking-player">
         <h2>RANKING DAS SUAS PARTIDAS</h2>
-        <table id="playerHistoryTable">
+        <table id="player-history-table">
             <thead>
                 <tr>
                     <th><span class="negrito">#</span></th>

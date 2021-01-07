@@ -14,7 +14,7 @@ try {
         fixPost();
         $username = $_SESSION["usuario"];
         
-        JogoDAO::selectAllGamePlayerToRanking(getNewDBConnection(), $username);
+        JogoDAO::selectGamesByPlayer(getNewDBConnection(), $username);
     }
 } catch (Exception $e) {
 
