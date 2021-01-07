@@ -150,26 +150,7 @@ function gameOver() {
   sound.pause();
   finishSound.play();
 
-  let http = new XMLHttpRequest();
-  let url = "/minetetris/controllers/jogoControllers/saveDataGame.php";
-  let gameData = new FormData();
-  gameData.append("tempo", account.time);
-  gameData.append("dificuldade", account.level);
-  gameData.append("pontuacao", account.score);
-  gameData.append("linhas_eliminadas", account.lines);
-  http.open("POST", url, true);
-  http.send(gameData);
-
-  let time = account.time.split(':');
-  let text = "Game Over";
-  text += "\nTempo de partida: " + time[0] + "m";
-  text += " " + time[1] + "s";
-  text += "\nDificuldade: " + account.level;
-  text += "\nPontuação: " + account.score;
-  text += "\nLinhas Eliminadas: " + account.lines;
-
-  window.location.reload();
-  window.alert(text);
+  sendGameData(account);
 
   resetTimer();
   toggleBoardDisplay();
@@ -263,46 +244,4 @@ function toggleBoardDisplay() {
 
   let board = document.querySelector('#board');
   board.style.display = board.style.display === 'block' ? 'none' : 'block';
-}
-
-function getLastAllGamePlayer() {
-
-  let http = new XMLHttpRequest();
-  let url = "/minetetris/controllers/jogoControllers/rankingLastAllGamePlayer.php";
-  http.open("POST", url, true);
-  http.send();
-  http.onload = function () {
-
-    try {
-
-      games = JSON.parse(http.response);
-
-      if (!games.length <= 0) {
-
-        var tableRankingLastGames = document.getElementById("tableRankingLastAllGameplayer");
-
-        for (const x of games) {
-
-          var row = tableRankingLastGames.insertRow(index);
-          var idTable = row.insertCell(0);
-          var punctuationTable = row.insertCell(1);
-          var difficultyTable = row.insertCell(2);
-          var timeEndTable = row.insertCell(3);
-          idTable.innerHTML = index;
-          punctuationTable.innerHTML = x.pontuacao;
-          difficultyTable.innerHTML = x.dificuldade;
-          timeEndTable.innerHTML = x.tempo;
-
-          index++;
-        }
-
-      }
-
-    } catch (err) {
-
-      alert(err.message);
-
-    }
-
-  };
 }

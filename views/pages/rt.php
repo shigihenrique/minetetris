@@ -27,7 +27,7 @@
     <script src="../js/bootstrap.min.js"></script>
 </head>
 
-<body onload="getLastAllGamePlayer()" <?= getAlertForMessage(); ?>>
+<body onload="getPlayerHistory()" <?= getAlertForMessage(); ?>>
     <header>
         <figure>
             <a href="rt.php"><img src="../lib/img/minetetris.png" alt="Logo"></a>
@@ -123,6 +123,7 @@
     <script type="text/javascript" src="../js/piece.js"></script>
     <script type="text/javascript" src="../js/sound.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/handleGameData.js"></script>
 </body>
 
 </html>
