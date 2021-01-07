@@ -3,13 +3,13 @@ function sendGameData(data) {
     const url = "/minetetris/controllers/jogoControllers/saveDataGame.php";
     let gameData = new FormData();
 
-    gameData.append("tempo", data.time);
+    gameData.append("tempo", '00:' + data.time);
     gameData.append("dificuldade", data.level);
     gameData.append("pontuacao", data.score);
     gameData.append("linhas_eliminadas", data.lines);
     http.open("POST", url, true);
     http.send(gameData);
-    console.log(gameData["tempo"]);
+
     let time = data.time.split(':');
     let text = "Game Over";
     text += "\nTempo de partida: " + time[0] + "m";
@@ -21,7 +21,6 @@ function sendGameData(data) {
     window.location.reload();
     window.alert(text);
 }
-
 
 function getPlayerHistory() {
     const http = new XMLHttpRequest();

@@ -4,7 +4,7 @@ const canvasNext = document.getElementById('next');
 const ctxNext = canvasNext.getContext('2d');
 
 let accountValues = {
-  time: '00:00',
+  time: '00:00:00',
   score: 0,
   lines: 0,
   level: 1,
@@ -182,8 +182,11 @@ let timerCall = null;
 function timer() {
   const time = account.time.split(':');
 
-  let seconds = time[1]++;
-  let minutes = time[0];
+  let seconds = time[2]++;
+  let minutes = time[1];
+  let hours = time[0];
+  console.log(seconds);
+  console.log(hours)
 
   seconds++;
 
@@ -195,7 +198,15 @@ function timer() {
 
     if(minutes < 10) minutes = '0' + minutes;
   }
-  account.time = `${minutes}:${seconds}`;
+
+  if(minutes > 59) {
+    minutes = '00';
+    hours++;
+
+    if(hours < 10) hours = '0' + hours;
+  } 
+
+  account.time = `${hours}:${minutes}:${seconds}`;
 }
 
 function initTimer() {
@@ -209,7 +220,7 @@ function pauseTimer() {
 
 function resetTimer() {
   clearInterval(timerCall);
-  account.time = '00:00';   
+  account.time = '00:00:00';   
 }
 
 function toggleStartButtonDisplay() {
