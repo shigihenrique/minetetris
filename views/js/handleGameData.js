@@ -33,7 +33,40 @@ function getPlayerHistory() {
             games = JSON.parse(http.response);
 
             if(!games.length <= 0) {
-                let tableRankingLastGames = document.getElementById("tableRankingLastAllGameplayer");
+                let playerHistoryTable = document.getElementById("tableRankingLastAllGameplayer");
+
+                for (const game of games) {
+                    let row = playerHistoryTable.insertRow(index);
+                    let idTable = row.insertCell(0);
+                    let scoreColumn = row.insertCell(1);
+                    let levelColumn = row.insertCell(2);
+                    let timeColumn = row.insertCell(3);
+                    idTable.innerHTML = index;
+                    scoreColumn.innerHTML = game.pontuacao;
+                    levelColumn.innerHTML = game.dificuldade;
+                    timeColumn.innerHTML = game.tempo;
+
+                    index++;
+                }
+            }
+        } catch (err) {
+
+            alert(err.message);
+        }
+    };
+}
+
+function getGameRanking() {
+    let http = new XMLHttpRequest();
+    let url = "/minetetris/controllers/jogoControllers/playerHistory.php";
+    http.open("POST", url, true);
+    http.send();
+    http.onload = function () {
+        try {
+            games = JSON.parse(http.response);
+
+            if(!games.length <= 0) {
+                let tableRankingLastGames = document.getElementById("playerHistoryTable");
 
                 for (const x of games) {
                 let row = tableRankingLastGames.insertRow(index);
@@ -52,7 +85,6 @@ function getPlayerHistory() {
         } catch (err) {
 
             alert(err.message);
-
         }
     };
 }

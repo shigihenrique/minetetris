@@ -17,7 +17,7 @@ if (!isset($_SESSION['usuario'])) {
     <title>MINETETRIS</title>
 </head>
 
-<body>
+<body onload="getPlayerHistory()">
     <header>
         <figure>
             <a href="rt.php">
@@ -80,6 +80,8 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </section>
     </main>
+
+    <script type="text/javascript" src="../js/handleGameData.js"></script>
 </body>
 
 </html>
