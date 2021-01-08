@@ -1,7 +1,7 @@
 # Minetetris
 
 # Configuração para desenvolvimento
-Para configuração do ambiente de desenvolvimento, deve ser criado o banco de dados SQL. O script para ser executado está em controllers/database/database.sql.
+Para configuração do ambiente de desenvolvimento, deve ser criado o banco de dados SQL. O script para ser executado está em /database/database.sql.
 
 Também é necessário ajustar o nome de usuário e senha do seu banco de dados, isso deve ser feito nas variaveis de ambiente do programa, em environment.php.
 
